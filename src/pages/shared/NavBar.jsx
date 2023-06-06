@@ -6,6 +6,7 @@ const NavBar = () => {
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
         
+        
 
     </>
     return (
@@ -29,7 +30,9 @@ const NavBar = () => {
             </ul>
         </div>
         <div className="navbar-end me-5">
+            <Link to="/login">
             <button className="btn btn-outline btn-warning">Login</button>
+            </Link>
             {/* <Link to='/login'>
                 <button style={{ backgroundColor: "white", color: "blue", border: "blue", width: "80px", height: "40px", borderRadius: "10px" }}>Login</button>
             </Link> */}
