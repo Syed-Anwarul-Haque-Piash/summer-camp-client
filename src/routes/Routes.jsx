@@ -8,6 +8,7 @@ import Instructor from "../pages/Home/Instructor/Instructor";
 import DashBoard from "../layouts/dashboard/DashBoard";
 import Classes from "../pages/Classes/Classes";
 import NewClass from "../pages/NewClass/NewClass";
+import UsersAction from "../pages/UsersAction/UsersAction";
 
   const router = createBrowserRouter([
     {
@@ -40,7 +41,12 @@ import NewClass from "../pages/NewClass/NewClass";
         {
           path: "/dashboard/class",
           element: <NewClass></NewClass>
+        },
+        {
+          path: "/dashboard/action",
+          element:<UsersAction></UsersAction>
         }
+
       ]
     }
   ]);

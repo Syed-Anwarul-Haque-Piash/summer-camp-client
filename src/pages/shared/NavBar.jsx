@@ -16,7 +16,7 @@ const NavBar = () => {
     }
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
-        <li><button onClick={handleLogOut}>Log out</button></li>
+       
         {user?.email ? <>
             <li><Link to="/dashboard">Dashboard</Link></li>
             {/* <li><Link to="/allToy">All Toys</Link></li> */}
@@ -32,7 +32,7 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="navbar  h-16 mb-4 bg-slate-200 p-6">
+        <div className="navbar  h-16   p-6">
         <div className="navbar-start">
             <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
