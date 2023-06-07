@@ -8,61 +8,55 @@ const Instructor = () => {
     }
     return (
         <div >
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ms-4 me-4">
-                {/* {errors.exampleRequired && <span>This field is required</span>} */}
-                <div className="form-control">
-                    {/* <input type="text" {...register("Toy Name")} placeholder="Toy Name" name="name" className="input input-bordered" /> */}
-                    <input
-                        className="input input-bordered"
-                        {...register("name")}
-                        placeholder="Instructor Name"
-                    
-                    />
-                </div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ms-4 me-4">
+                    {/* {errors.exampleRequired && <span>This field is required</span>} */}
+                    <div className="form-control">
+                        {/* <input type="text" {...register("Toy Name")} placeholder="Toy Name" name="name" className="input input-bordered" /> */}
+                        <input
+                            className="input input-bordered"
+                            {...register("name")}
+                            placeholder="Instructor Name"
 
-                
-                
-                
+                        />
+                    </div>
+                    <div className="form-control">
+                        {/* <input type="text" {...register("image")} placeholder="Image" name="image" className="input input-bordered" /> */}
+                        <input
+                            className="input input-bordered"
+                            {...register("image")}
+                            placeholder="Image Link"
+                            type="url"
 
+                        />
+                    </div>
 
-                <div className="form-control">
-                    {/* <input type="text" {...register("image")} placeholder="Image" name="image" className="input input-bordered" /> */}
-                    <input
-                        className="input input-bordered"
-                        {...register("image")}
-                        placeholder="Image Link"
-                        type="url"
-                        
-                    />
-                </div>
-               
-                <div className="form-control">
-                    {/* <input type="text-input" {...register("email")} placeholder="Email" type="email" className="input input-bordered" /> */}
-                    <input
-                        className="input input-bordered"
-                        // value={user?.email}
-                        {...register("email")}
-                        placeholder="Instructor email"
-                        type="email"
-                    />
+                    <div className="form-control">
+                        {/* <input type="text-input" {...register("email")} placeholder="Email" type="email" className="input input-bordered" /> */}
+                        <input
+                            className="input input-bordered"
+                            // value={user?.email}
+                            {...register("email")}
+                            placeholder="Instructor email"
+                            type="email"
+                        />
+
+                    </div>
+                    <div className="form-control">
+                        <input
+                            className="input input-bordered"
+                            {...register("number")}
+                            placeholder="Number of classes"
+                            type="text"
+                        />
+                    </div>
 
                 </div>
-                <div className="form-control">
-                    <input
-                        className="input input-bordered"
-                        {...register("number")}
-                        placeholder="Number of classes"
-                        type="text"
-                    />
+                <div className="form-control mt-6">
+                    <input className="btn btn-neutral  mx-auto" value="Add a instructor" type="submit" />
                 </div>
-                
-            </div>
-            <div className="form-control mt-6">
-                <input className="btn btn-neutral  mx-auto" value="Add a Toy" type="submit" />
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
 
     );
