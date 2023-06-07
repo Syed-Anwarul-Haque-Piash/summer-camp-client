@@ -2,6 +2,7 @@ import { Container } from 'postcss';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -56,13 +57,13 @@ const NavBar = () => {
             </Link>
             {/* <Link to='/login'>
                 <button style={{ backgroundColor: "white", color: "blue", border: "blue", width: "80px", height: "40px", borderRadius: "10px" }}>Login</button>
-            </Link> */}
+            </Link>  */}
             {/* {
                 user?.photoURL ? <img style={{ width: '50px', marginRight: "15px", borderRadius: '50%' }} src={user.photoURL} alt="" /> : <></>
             } */}
-           {/* {
+            {
                 user?.photoURL ? <img style={{ width: '50px', marginRight: "15px", borderRadius: '50%' }} src={user.photoURL} alt="" /> : <FaUserCircle style={{ fontSize: '30px' }}></FaUserCircle>
-            }  */}
+            } 
         </div>
     </div>
     );
