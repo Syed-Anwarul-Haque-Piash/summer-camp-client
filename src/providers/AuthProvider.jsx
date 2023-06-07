@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import app from '../firebase/firebase.config';
 
 
+
 const auth = getAuth(app);
 //const googleProvider=new GoogleAuthProvider();
 export const AuthContext=createContext(null);

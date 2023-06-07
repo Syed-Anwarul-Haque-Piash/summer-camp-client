@@ -1,11 +1,32 @@
 import { Container } from 'postcss';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user)
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+
+            })
+            .catch(error => console.log(error))
+    }
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
-        
+        <li><button onClick={handleLogOut}>Log out</button></li>
+        {user?.email ? <>
+            {/* <li><Link to="/addToy">Add A Toy</Link></li>
+            <li><Link to="/allToy">All Toys</Link></li>
+            <li><Link to="/myToy">My Toys</Link></li> */}
+            <li><button onClick={handleLogOut}>Log out</button></li>
+        </>
+            : <>
+                {/* <li><Link to="/allToy">All Toys</Link></li> */}
+                <li> <Link to="/login">Login</Link> </li></>
+
+        }
         
 
     </>
