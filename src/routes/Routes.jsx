@@ -27,6 +27,10 @@ import UsersAction from "../pages/UsersAction/UsersAction";
             path: "/signup",
             element: <SignUp></SignUp>
         },
+        {
+          path: "/classes",
+          element: <Classes></Classes>
+        }
         
       ]
     },
