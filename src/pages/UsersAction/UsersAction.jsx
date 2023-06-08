@@ -1,7 +1,14 @@
-import React from 'react';
-import {  FaChalkboardTeacher, FaTrashAlt } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { FaChalkboardTeacher, FaTrashAlt } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
 const UsersAction = () => {
+    const [userData, setUserData] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/users")
+            .then((res) => res.json())
+            .then((data) => setUserData(data));
+    }, []);
+    console.log(userData);
     return (
         <div className="overflow-x-auto">
             <table className="table table-xs">
@@ -17,15 +24,17 @@ const UsersAction = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>img</td>
-                        <td>Piash</td>
-                        <td>syed88783@gmail.com</td>
-                        <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
-                        <td><RiAdminLine></RiAdminLine></td>
-                        <td><FaTrashAlt></FaTrashAlt></td>
-                    </tr>
+                    {userData.map((data, i) => (
+                        <tr key={i}>
+                            <th>{i + 1}</th>
+                            <td>img</td>
+                            <td>Piash</td>
+                            <td>{data.email}</td>
+                            <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
+                            <td><RiAdminLine></RiAdminLine></td>
+                            <td><FaTrashAlt></FaTrashAlt></td>
+                        </tr>
+                    ))}
                 </tbody>
 
             </table>
