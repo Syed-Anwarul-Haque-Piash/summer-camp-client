@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
+//import { saveUser } from '../api/AuthApi';
 
 
 
@@ -27,10 +28,16 @@ const AuthProvider = ({children}) => {
         setLoading(true)
         return signOut(auth)
     }
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        });
+    }
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth,loggedUser=>{
             console.log("Logged in user inside auth state observer",loggedUser);
             setUser(loggedUser)
+            //saveUser(loggedUser);
             setLoading(false);
         })
         return ()=>{
@@ -43,6 +50,7 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn,
         logOut,
+        updateUserProfile
         //googleSignIn
     }
     return (

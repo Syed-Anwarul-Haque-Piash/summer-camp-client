@@ -5,6 +5,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import {  FaGoogle } from "react-icons/fa";
 import app from '../../firebase/firebase.config';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { saveUser } from '../../api/AuthApi';
 
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                saveUser(loggedUser)
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -36,6 +38,7 @@ const Login = () => {
             .then(result=>{
               const user=result.user;
               console.log(user);
+              saveUser(user);
               navigate(from,{replace:true})
             })
             .catch(error=>{
