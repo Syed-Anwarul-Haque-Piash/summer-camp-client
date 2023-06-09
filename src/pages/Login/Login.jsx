@@ -6,6 +6,7 @@ import {  FaGoogle } from "react-icons/fa";
 import app from '../../firebase/firebase.config';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { saveUser } from '../../api/AuthApi';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
@@ -27,6 +28,13 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 saveUser(loggedUser)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User logged in successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -39,6 +47,13 @@ const Login = () => {
               const user=result.user;
               console.log(user);
               saveUser(user);
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User logged in successfully.',
+                showConfirmButton: false,
+                timer: 1500
+            });
               navigate(from,{replace:true})
             })
             .catch(error=>{

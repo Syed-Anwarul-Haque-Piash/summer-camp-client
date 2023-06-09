@@ -27,7 +27,6 @@ const UsersAction = () => {
                         <tr key={i}>
                             <th>{i + 1}</th>
                             <td>{data.name}</td>
-                            
                             <td>{data.email}</td>
                             <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
                             <td><RiAdminLine></RiAdminLine></td>
