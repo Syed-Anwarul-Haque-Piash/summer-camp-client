@@ -16,7 +16,6 @@ const UsersAction = () => {
                     <tr>
                         <th></th>
                         <th>Name</th>
-                        <th>Image</th>
                         <th>Email</th>
                         <th>Instructor</th>
                         <th>Admin</th>
@@ -27,8 +26,8 @@ const UsersAction = () => {
                     {userData.map((data, i) => (
                         <tr key={i}>
                             <th>{i + 1}</th>
-                            <td>img</td>
-                            <td>Piash</td>
+                            <td>{data.name}</td>
+                            
                             <td>{data.email}</td>
                             <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
                             <td><RiAdminLine></RiAdminLine></td>
