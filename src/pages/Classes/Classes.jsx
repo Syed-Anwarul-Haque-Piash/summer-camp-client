@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Course from '../Course/Course';
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
@@ -14,7 +16,7 @@ const Classes = () => {
         <div>
             <div className='grid lg:grid-cols-3 mt-4'>
             {classes.map(cl=>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div key={cl._id} className="card w-96 bg-base-100 shadow-xl">
                 <figure><img src={cl.image} alt="Shoes" /></figure>
                 <div className="card-body">
                   <h2 className="card-title">{cl.name}</h2>
@@ -22,12 +24,21 @@ const Classes = () => {
                   <p>{cl.price}</p>
                   <p>{cl.available}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    {/* <button className="btn btn-primary">Read More</button> */}
+                    <Link to={`singleclass/${cl._id}`}>
+                        <button className="btn btn-neutral">View Details</button>
+                    </Link>
                   </div>
                 </div>
-              </div>)}
+              </div>
+            
+              )}
+              
             </div>
         </div>
+        // <div>
+        //     {classes.map(course=>  <Course key={course._id} course={course}></Course>)}
+        // </div>
     );
 };
 

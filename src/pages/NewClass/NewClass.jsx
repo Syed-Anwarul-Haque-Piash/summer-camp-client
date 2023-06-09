@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const NewClass = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const {user}=useContext(AuthContext);
     const onSubmit = data => {
         console.log(data)
         fetch('http://localhost:5000/classes',{
@@ -29,6 +31,7 @@ const NewClass = () => {
 
                     />
                 </div>
+                
                 <div className="form-control">
                     
                     <input
@@ -45,6 +48,18 @@ const NewClass = () => {
                         placeholder="Instructor Name"
 
                     />
+                    <div className="form-control">
+                
+                <input
+                    className="input input-bordered"
+                    
+                    {...register("email")}
+                    placeholder="Instructor email"
+                    value={user?.email}
+                    type="email"
+                />
+
+            </div>
 
                 <div className="form-control">
                 
@@ -63,6 +78,16 @@ const NewClass = () => {
                         {...register("available")}
                         placeholder="available Seat" 
                         type="number"
+                    />
+                </div>
+                <div className="form-control">
+                    <input
+                        className="input input-bordered"
+                        {...register("status")}
+                        placeholder="Status" 
+                        value={"pending"}
+                        type="text"
+                        hidden
                     />
                 </div>
 
