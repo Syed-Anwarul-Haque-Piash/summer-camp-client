@@ -1,7 +1,8 @@
 export const saveUser=(user)=>{
     //console.log(user);
     const currentUser={
-        email:user.email
+        email:user.email,
+        name:user.displayName
     }
     fetch(`http://localhost:5000/users/${user.email}`,{
         method:'PUT',
