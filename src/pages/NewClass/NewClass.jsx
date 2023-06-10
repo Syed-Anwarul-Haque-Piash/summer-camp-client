@@ -46,6 +46,7 @@ const NewClass = () => {
                         className="input input-bordered"
                         {...register("instructor")}
                         placeholder="Instructor Name"
+                        value={user?.displayName}
 
                     />
                     <div className="form-control">

@@ -19,7 +19,8 @@ const DashBoard = () => {
                     <li><a>Dashboard</a></li>
                     <li><Link to="/dashboard/instructor">Add Instructor</Link></li>
                     <li><Link to='/dashboard/class'>Add Class</Link></li>
-                    <li><Link to="/dashboard/action">Users Action</Link></li>
+                    <li><Link to="/dashboard/myclass">My Classes</Link></li>
+                    <li><Link to="/dashboard/action">Manage Users</Link></li>
                     <li><Link to="/dashboard/allclass">All Classes</Link></li>
                 </ul>
 

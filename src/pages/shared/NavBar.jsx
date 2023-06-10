@@ -6,7 +6,7 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user)
+    console.log(user);
     const handleLogOut = () => {
         logOut()
             .then(() => {

@@ -1,14 +1,18 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
-import { FaChalkboardTeacher, FaTrashAlt } from 'react-icons/fa';
+import { FaChalkboardTeacher } from 'react-icons/fa';
 import { RiAdminLine } from 'react-icons/ri';
+//import useAxiosSecure from '../../hooks/useAxiosSecure';
+import axios from 'axios';
 const UsersAction = () => {
-    const [userData, setUserData] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:5000/users")
-            .then((res) => res.json())
-            .then((data) => setUserData(data));
-    }, []);
-    console.log(userData);
+    const { data: userData = [], refetch } = useQuery(
+        ["users"],
+        async () => {
+          const res = await axios.get("http://localhost:5000/users");
+          return res.data;
+        }
+      );
+      console.log(userData);
     return (
         <div className="overflow-x-auto">
             <table className="table table-xs">
@@ -19,7 +23,6 @@ const UsersAction = () => {
                         <th>Email</th>
                         <th>Instructor</th>
                         <th>Admin</th>
-                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +33,6 @@ const UsersAction = () => {
                             <td>{data.email}</td>
                             <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
                             <td><RiAdminLine></RiAdminLine></td>
-                            <td><FaTrashAlt></FaTrashAlt></td>
                         </tr>
                     ))}
                 </tbody>

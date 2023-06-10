@@ -11,6 +11,8 @@ import NewClass from "../pages/NewClass/NewClass";
 import UsersAction from "../pages/UsersAction/UsersAction";
 import SingleClass from "../pages/SingleClass/SingleClass";
 import AllClasses from "../pages/AllClasses/AllClasses";
+import ShowInstructor from "../pages/ShowInstructor/ShowInstructor";
+import MyClass from "../pages/MyClass/MyClass";
 
   const router = createBrowserRouter([
     {
@@ -32,6 +34,10 @@ import AllClasses from "../pages/AllClasses/AllClasses";
         {
           path: "/classes",
           element: <Classes></Classes>
+        },
+        {
+          path:"/instructor",
+          element: <ShowInstructor></ShowInstructor>
         },
         {
           path: 'singleclass/:id',
@@ -60,6 +66,10 @@ import AllClasses from "../pages/AllClasses/AllClasses";
         {
           path: "/dashboard/allclass",
           element: <AllClasses></AllClasses>
+        },
+        {
+          path: "/dashboard/myclass",
+          element: <MyClass></MyClass>
         }
 
       ]
