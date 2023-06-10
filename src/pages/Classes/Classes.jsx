@@ -4,14 +4,23 @@ import Course from '../Course/Course';
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/classes')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             setClasses(data)
+    //         })
+    // }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setClasses(data)
-            })
-    }, [])
+        fetch(`http://localhost:5000/approvedClasses?status=${"approved"}`)
+          .then((res) => res.json())
+          .then((data) => {
+            
+            setClasses(data);
+          });
+      }, []);
+      console.log(classes)
     return (
         <div>
             <div className='grid lg:grid-cols-3 mt-4'>
@@ -26,7 +35,7 @@ const Classes = () => {
                   <div className="card-actions justify-end">
                     {/* <button className="btn btn-primary">Read More</button> */}
                     <Link to={`singleclass/${cl._id}`}>
-                        <button className="btn btn-neutral">View Details</button>
+                        <button className="btn btn-neutral">Add To Cart</button>
                     </Link>
                   </div>
                 </div>

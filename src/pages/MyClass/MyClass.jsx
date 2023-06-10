@@ -23,11 +23,11 @@ const MyClass = () => {
                         <div className="card-body">
                             <h2 className="card-title">Total Inrolment: 0</h2>
                             <p><div className="badge badge-neutral">Pending</div></p>
-                            <div className="card-actions ">
+                            {/* <div className="card-actions ">
                                 <button className="btn btn-success">Approved</button>
                                 <button className="btn btn-info">Pending</button>
                                 <button className="btn btn-error">Denied</button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>)
             }
