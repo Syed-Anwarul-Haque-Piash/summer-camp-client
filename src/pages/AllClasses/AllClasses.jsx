@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const AllClasses = () => {
     const [feedback, setFeedback] = useState("")
@@ -24,7 +25,16 @@ const AllClasses = () => {
             .then((response) => {
                 if (response.status === 200) {
 
-                    alert("Class approve Confirmed !");
+                    //alert("Class approve Confirmed !");
+                    Swal.fire({
+                        title: 'Class Approved Confirmed',
+                        showClass: {
+                          popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                          popup: 'animate__animated animate__fadeOutUp'
+                        }
+                      })
                 }
             })
     }
@@ -35,7 +45,16 @@ const AllClasses = () => {
             .then((response) => {
                 if (response.status === 200) {
 
-                    alert("Class denied Confirmed !");
+                    //alert("Class denied Confirmed !");
+                    Swal.fire({
+                        title: 'Class Denied Confirmed',
+                        showClass: {
+                          popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                          popup: 'animate__animated animate__fadeOutUp'
+                        }
+                      })
                 }
             })
     }
