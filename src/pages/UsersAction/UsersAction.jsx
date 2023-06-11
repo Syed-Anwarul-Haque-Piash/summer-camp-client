@@ -8,11 +8,36 @@ const UsersAction = () => {
     const { data: userData = [], refetch } = useQuery(
         ["users"],
         async () => {
-          const res = await axios.get("http://localhost:5000/users");
-          return res.data;
+            const res = await axios.get("http://localhost:5000/users");
+            return res.data;
         }
-      );
-      console.log(userData);
+    );
+    console.log(userData);
+    const instructorHandler = (id) => {
+        const ready = confirm("Are you sure you want to change roles?");
+        if (ready) {
+            fetch(`http://localhost:5000/users/instructor/${id}`, {
+                method: "PATCH"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+        }
+
+    }
+    const adminHandler=(id) => {
+        const ready = confirm("Are you sure you want to change roles?");
+        if (ready) {
+            fetch(`http://localhost:5000/users/admin/${id}`, {
+                method: "PATCH"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+        }
+    }
     return (
         <div className="overflow-x-auto">
             <table className="table table-xs">
@@ -31,8 +56,8 @@ const UsersAction = () => {
                             <th>{i + 1}</th>
                             <td>{data.name}</td>
                             <td>{data.email}</td>
-                            <td><FaChalkboardTeacher></FaChalkboardTeacher></td>
-                            <td><RiAdminLine></RiAdminLine></td>
+                            <td><FaChalkboardTeacher onClick={() => instructorHandler(data._id)}></FaChalkboardTeacher></td>
+                            <td><RiAdminLine onClick={()=>adminHandler(data._id)}></RiAdminLine></td>
                         </tr>
                     ))}
                 </tbody>

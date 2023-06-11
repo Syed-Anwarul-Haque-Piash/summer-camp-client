@@ -14,8 +14,29 @@ const Classes = () => {
           });
       }, []);
       console.log(classes)
-      const addClasses=() => {
-        
+      const addClasses=(cl) => {
+         console.log(cl)
+         const info={
+          available: cl.available,
+          email: cl.email,
+          image: cl.image,
+          instructor: cl.instructor,
+          name: cl.name,
+          price: cl.price,
+          status: cl.status,
+          id: cl._id
+         }
+         fetch('http://localhost:5000/addtocart',{
+          method: 'POST',
+          headers:{
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(info)
+         })
+         .then(res=>res.json())
+         .then(data=>{
+          console.log(data)
+         })
       } 
     return (
         <div>

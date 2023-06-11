@@ -13,6 +13,7 @@ import SingleClass from "../pages/SingleClass/SingleClass";
 import AllClasses from "../pages/AllClasses/AllClasses";
 import ShowInstructor from "../pages/ShowInstructor/ShowInstructor";
 import MyClass from "../pages/MyClass/MyClass";
+import SelectItem from "../pages/SelectItem/SelectItem";
 
   const router = createBrowserRouter([
     {
@@ -70,6 +71,10 @@ import MyClass from "../pages/MyClass/MyClass";
         {
           path: "/dashboard/myclass",
           element: <MyClass></MyClass>
+        },
+        {
+          path: "/dashboard/selectitem",
+          element: <SelectItem></SelectItem>
         }
 
       ]

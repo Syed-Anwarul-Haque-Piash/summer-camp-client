@@ -2,7 +2,8 @@ export const saveUser=(user)=>{
     //console.log(user);
     const currentUser={
         email:user.email,
-        name:user.displayName
+        name:user.displayName,
+        //img:user?.photoURL
     }
     fetch(`http://localhost:5000/users/${user.email}`,{
         method:'PUT',
