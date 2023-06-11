@@ -13,19 +13,19 @@ const UsersAction = () => {
         }
     );
     console.log(userData);
-    const instructorHandler = (id) => {
-        const ready = confirm("Are you sure you want to change roles?");
-        if (ready) {
-            fetch(`http://localhost:5000/users/instructor/${id}`, {
-                method: "PATCH"
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                })
-        }
+    // const instructorHandler = (id) => {
+    //     const ready = confirm("Are you sure you want to change roles?");
+    //     if (ready) {
+    //         fetch(`http://localhost:5000/users/instructor/${id}`, {
+    //             method: "PATCH"
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 console.log(data)
+    //             })
+    //     }
 
-    }
+    // }
     const adminHandler=(id) => {
         const ready = confirm("Are you sure you want to change roles?");
         if (ready) {
