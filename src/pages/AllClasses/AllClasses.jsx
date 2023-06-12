@@ -117,6 +117,7 @@ const AllClasses = () => {
                         <th>Class name</th>
                         <th>price</th>
                         <th>Instructor Name</th>
+                        <th>Available Seat</th>
                         <th>Action</th>
                         <th>Denied</th>
                     </tr>
@@ -130,6 +131,7 @@ const AllClasses = () => {
                             <td>{singleData.name}</td>
                             <td>{singleData.price}</td>
                             <td>{singleData.instructor}</td>
+                            <td>{singleData.available}</td>
                             <td><button onClick={() => approveHandler(singleData._id)} className="btn btn-success">Approved</button></td>
                             <td><button onClick={() => denyHandler(singleData._id)} className="btn btn-error">Denied</button></td>
                             <td ><button className="btn"><a onClick={() => setFeedback(singleData._id)} href="#my_modal_8" className="btn">Feedback</a></button></td>

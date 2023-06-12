@@ -21,7 +21,7 @@ const DashBoard = () => {
                     <li><Link to='/dashboard/class'>Add Class</Link></li>
                     <li><Link to="/dashboard/myclass">My Classes</Link></li>
                     <li><Link to="/dashboard/action">Manage Users</Link></li>
-                    <li><Link to="/dashboard/allclass">All Classes</Link></li>
+                    <li><Link to="/dashboard/allclass">Manage Classes</Link></li>
                     <li><Link to="/dashboard/selectitem">Select Item</Link></li>
                 </ul>
 
