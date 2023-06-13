@@ -14,6 +14,7 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import ShowInstructor from "../pages/ShowInstructor/ShowInstructor";
 import MyClass from "../pages/MyClass/MyClass";
 import SelectItem from "../pages/SelectItem/SelectItem";
+import UpdateMyClass from "../pages/UpdateMyClass/UpdateMyClass";
 
   const router = createBrowserRouter([
     {
@@ -71,6 +72,11 @@ import SelectItem from "../pages/SelectItem/SelectItem";
         {
           path: "/dashboard/myclass",
           element: <MyClass></MyClass>
+        },
+        {
+          path: "/dashboard/updateclass/:id",
+          element: <UpdateMyClass></UpdateMyClass>,
+          //loader: ({params})=>fetch(`http://localhost:5000/singleclass/${params.id}`)
         },
         {
           path: "/dashboard/selectitem",

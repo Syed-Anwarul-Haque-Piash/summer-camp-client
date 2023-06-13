@@ -6,33 +6,25 @@ import Swal from 'sweetalert2';
 //import { saveUser } from '../../api/AuthApi';
 
 const SignUp = () => {
-    const { createUser, updateUserProfile,logOut } = useContext(AuthContext);
+    const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
-    // const onSubmit = data =>{
-    //     console.log(data)
-    //     createUser(data.email,data.password)
-    //     .then(result=>{
-    //         const createdUser=result.user
-    //         console.log(createdUser)
-    //         //updateUser(result.user,name,photo)
-    //         //e.target.reset();
-    //     })
-    //     .catch(error=>{
-    //         console.log(error)
-    //     })
-    // };
+    
     const onSubmit = data => {
-        console.log(data);
+        //console.log(data);
+        if(data.password !==data.confirm){
+        alert('password didnot match');
+        return
+        }
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 //saveUser(result);
                 console.log(result);
                 console.log(loggedUser);
-                navigate('/login');
-                logOut();
+                //navigate('/login');
+                //logOut();
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user profile info updated')
@@ -44,7 +36,7 @@ const SignUp = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        //navigate('/');
+                        navigate('/');
 
                     })
                     .catch(error => console.log(error))
@@ -94,6 +86,13 @@ const SignUp = () => {
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Confirm Password</span>
+                            </label>
+                            <input type="password" placeholder="Confirm Password" {...register("confirm", { required: true })} className="input input-bordered" />
+                            
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>

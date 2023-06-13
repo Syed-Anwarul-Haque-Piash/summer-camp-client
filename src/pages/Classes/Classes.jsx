@@ -43,7 +43,7 @@ const Classes = () => {
             <div className='grid lg:grid-cols-3 mt-4'>
             {classes.map(cl=>
                 <div key={cl._id} className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={cl.image} alt="Shoes" /></figure>
+                <figure><img className='w-full h-64' src={cl.image} alt="Shoes" /></figure>
                 <div className="card-body">
                   <h2 className="card-title">{cl.name}</h2>
                   <p>{cl.instructor}</p>

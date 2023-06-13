@@ -19,30 +19,30 @@ const NewClass = () => {
     }
     return (
         <div >
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ms-4 me-4">
-                
-                <div className="form-control">
-                
-                    <input
-                        className="input input-bordered"
-                        {...register("name")}
-                        placeholder="Class Name"
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ms-4 me-4">
 
-                    />
-                </div>
-                
-                <div className="form-control">
-                    
-                    <input
-                        className="input input-bordered"
-                        {...register("image")}
-                        placeholder="Image Link"
-                        type="url"
+                    <div className="form-control">
 
-                    />
-                </div>
-                <input
+                        <input
+                            className="input input-bordered"
+                            {...register("name")}
+                            placeholder="Class Name"
+
+                        />
+                    </div>
+
+                    <div className="form-control">
+
+                        <input
+                            className="input input-bordered"
+                            {...register("image")}
+                            placeholder="Image Link"
+                            type="url"
+
+                        />
+                    </div>
+                    <input
                         className="input input-bordered"
                         {...register("instructor")}
                         placeholder="Instructor Name"
@@ -50,54 +50,54 @@ const NewClass = () => {
 
                     />
                     <div className="form-control">
-                
-                <input
-                    className="input input-bordered"
-                    
-                    {...register("email")}
-                    placeholder="Instructor email"
-                    value={user?.email}
-                    type="email"
-                />
 
-            </div>
+                        <input
+                            className="input input-bordered"
 
-                <div className="form-control">
-                
-                    <input
-                        className="input input-bordered"
-                        
-                        {...register("price")}
-                        placeholder="Price"
-                        type="number"
-                    />
+                            {...register("email")}
+                            placeholder="Instructor email"
+                            value={user?.email}
+                            type="email"
+                        />
+
+                    </div>
+
+                    <div className="form-control">
+
+                        <input
+                            className="input input-bordered"
+
+                            {...register("price")}
+                            placeholder="Price"
+                            type="number"
+                        />
+
+                    </div>
+                    <div className="form-control">
+                        <input
+                            className="input input-bordered"
+                            {...register("available")}
+                            placeholder="available Seat"
+                            type="number"
+                        />
+                    </div>
+                    <div className="form-control">
+                        <input
+                            className="input input-bordered"
+                            {...register("status")}
+                            placeholder="Status"
+                            value={"pending"}
+                            type="text"
+                            hidden
+                        />
+                    </div>
 
                 </div>
-                <div className="form-control">
-                    <input
-                        className="input input-bordered"
-                        {...register("available")}
-                        placeholder="available Seat" 
-                        type="number"
-                    />
+                <div className="form-control mt-6">
+                    <input className="btn btn-neutral  mx-auto" value="Add a Class" type="submit" />
                 </div>
-                <div className="form-control">
-                    <input
-                        className="input input-bordered"
-                        {...register("status")}
-                        placeholder="Status" 
-                        value={"pending"}
-                        type="text"
-                        hidden
-                    />
-                </div>
-
-            </div>
-            <div className="form-control mt-6">
-                <input className="btn btn-neutral  mx-auto" value="Add a Class" type="submit" />
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     );
 };
 
