@@ -15,6 +15,7 @@ const MyClass = () => {
                 setClassData(data)
             })
     }, [user?.email])
+    console.log(classData)
     return (
         <div>
             

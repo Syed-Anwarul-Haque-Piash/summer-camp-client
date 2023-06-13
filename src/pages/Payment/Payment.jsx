@@ -8,7 +8,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_payment_Gateway_PK);
 
 const Payment = () => {
   const data = useLoaderData();
-  const getPrice = parseFloat(data.price);
+  const getPrice = Number(data.price);
+  console.log(typeof data.price);
   const price = getPrice.toFixed(2);
   return (
     <div>
