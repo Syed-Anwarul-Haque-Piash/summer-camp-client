@@ -7,12 +7,19 @@ const NewClass = () => {
     const {user}=useContext(AuthContext);
     const onSubmit = data => {
         console.log(data)
+        // Parse numeric fields as numbers
+        data.availableSeat = Number(data.availableSeat);
+
+        const newClassData = {
+          ...data,
+          enrolledStudent: 0,
+        };
         fetch('http://localhost:5000/classes',{
             method: 'POST',
             headers:{
                 'content-type':'application/json'
             },
-            body:JSON.stringify(data)
+            body:JSON.stringify(newClassData)
         })
         .then(res=>res.json())
         .then(data=>console.log(data))
@@ -44,7 +51,7 @@ const NewClass = () => {
                     </div>
                     <input
                         className="input input-bordered"
-                        {...register("instructor")}
+                        {...register("instructorName")}
                         placeholder="Instructor Name"
                         value={user?.displayName}
 
@@ -54,7 +61,7 @@ const NewClass = () => {
                         <input
                             className="input input-bordered"
 
-                            {...register("email")}
+                            {...register("instructorEmail")}
                             placeholder="Instructor email"
                             value={user?.email}
                             type="email"
@@ -76,7 +83,7 @@ const NewClass = () => {
                     <div className="form-control">
                         <input
                             className="input input-bordered"
-                            {...register("available")}
+                            {...register("availableSeat")}
                             placeholder="available Seat"
                             type="number"
                         />
@@ -87,6 +94,16 @@ const NewClass = () => {
                             {...register("status")}
                             placeholder="Status"
                             value={"pending"}
+                            type="text"
+                            hidden
+                        />
+                    </div>
+                    <div className="form-control">
+                        <input
+                            className="input input-bordered"
+                            {...register("enrolledStudent")}
+                            placeholder="Enrolled Student"
+                            value={0}
                             type="text"
                             hidden
                         />

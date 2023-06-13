@@ -15,6 +15,7 @@ import ShowInstructor from "../pages/ShowInstructor/ShowInstructor";
 import MyClass from "../pages/MyClass/MyClass";
 import SelectItem from "../pages/SelectItem/SelectItem";
 import UpdateMyClass from "../pages/UpdateMyClass/UpdateMyClass";
+import Payment from "../pages/Payment/Payment";
 
   const router = createBrowserRouter([
     {
@@ -81,6 +82,11 @@ import UpdateMyClass from "../pages/UpdateMyClass/UpdateMyClass";
         {
           path: "/dashboard/selectitem",
           element: <SelectItem></SelectItem>
+        },
+        {
+          path: "/dashboard/payment/:id",
+          element: <Payment></Payment>,
+          loader: ({params})=>fetch(`http://localhost:5000/addtoclass/${params.id}`)
         }
 
       ]
