@@ -8,7 +8,7 @@ const UsersAction = () => {
     const { data: userData = [], refetch } = useQuery(
         ["users"],
         async () => {
-            const res = await axios.get("http://localhost:5000/users");
+            const res = await axios.get("https://summer-camp-server-flame-three.vercel.app/users");
             return res.data;
         }
     );
@@ -16,7 +16,7 @@ const UsersAction = () => {
     const instructorHandler = (id) => {
         const ready = confirm("Are you sure you want to change roles?");
         if (ready) {
-            fetch(`http://localhost:5000/users/instructor/${id}`, {
+            fetch(`https://summer-camp-server-flame-three.vercel.app/users/instructor/${id}`, {
                 method: "PATCH"
             })
                 .then(res => res.json())
@@ -29,7 +29,7 @@ const UsersAction = () => {
     const adminHandler=(id) => {
         const ready = confirm("Are you sure you want to change roles?");
         if (ready) {
-            fetch(`http://localhost:5000/users/admin/${id}`, {
+            fetch(`https://summer-camp-server-flame-three.vercel.app/users/admin/${id}`, {
                 method: "PATCH"
             })
                 .then(res => res.json())
@@ -56,8 +56,8 @@ const UsersAction = () => {
                             <th>{i + 1}</th>
                             <td>{data.name}</td>
                             <td>{data.email}</td>
-                            <td><FaChalkboardTeacher onClick={() => instructorHandler(data._id)}></FaChalkboardTeacher></td>
-                            <td><RiAdminLine onClick={()=>adminHandler(data._id)}></RiAdminLine></td>
+                            <td><FaChalkboardTeacher className='text-blue-700 text-3xl' onClick={() => instructorHandler(data._id)}></FaChalkboardTeacher></td>
+                            <td><RiAdminLine className='text-green-700 text-3xl'  onClick={()=>adminHandler(data._id)}></RiAdminLine></td>
                         </tr>
                     ))}
                 </tbody>

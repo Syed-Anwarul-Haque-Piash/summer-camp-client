@@ -32,6 +32,7 @@ const NavBar = () => {
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
        <li><Link to="/classes">All Classes</Link></li>
+       <li><Link to="/instructor">Instructor</Link></li>
         {user?.email ? <>
             <li><Link to="/dashboard">Dashboard</Link></li>
             

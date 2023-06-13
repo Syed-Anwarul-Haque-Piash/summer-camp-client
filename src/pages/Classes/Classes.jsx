@@ -8,7 +8,7 @@ const Classes = () => {
     const {user}=useContext(AuthContext);
     
     useEffect(() => {
-        fetch(`http://localhost:5000/approvedClasses?status=${"approved"}`)
+        fetch(`https://summer-camp-server-flame-three.vercel.app/approvedClasses?status=${"approved"}`)
           .then((res) => res.json())
           .then((data) => {
             
@@ -31,7 +31,7 @@ const Classes = () => {
           studentClassAdds:user?.email,
           payment:"Pending",
          }
-         fetch('http://localhost:5000/addtocart',{
+         fetch('https://summer-camp-server-flame-three.vercel.app/addtocart',{
           method: 'POST',
           headers:{
             'content-type': 'application/json'
@@ -56,20 +56,7 @@ const Classes = () => {
                   <p>{cl.price}</p>
                   <p>{cl.available}</p>
                   <div className="card-actions justify-end">
-                    {/* <button className="btn btn-primary">Read More</button> */}
-                    {/* 
-                    
-                    
-                    
-                    price
-                    status
-                    
-                    enrolledStudent
-                    enrolledStudent
-                    uploadDate
-                    payment
-                    studentClassAdds
-                    userEmail */}
+                   
                    
                       <button onClick={()=>addClasses(cl)} className="btn btn-neutral">Add To Cart</button>
                     

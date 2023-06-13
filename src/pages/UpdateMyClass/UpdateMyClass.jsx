@@ -9,7 +9,7 @@ const UpdateMyClass = () => {
     // const {id}=useLoaderData();
     // console.log(id);
     useEffect(()=>{
-        fetch(`http://localhost:5000/singleclass/${id}`)
+        fetch(`https://summer-camp-server-flame-three.vercel.app/singleclass/${id}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
@@ -22,7 +22,7 @@ const UpdateMyClass = () => {
     const onSubmit = data => {
         
         //console.log(data)
-        fetch(`http://localhost:5000/classes/${id}`,{
+        fetch(`https://summer-camp-server-flame-three.vercel.app/classes/${id}`,{
             method: 'PUT',
             headers:{
                 'content-type':'application/json'

@@ -16,11 +16,14 @@ import MyClass from "../pages/MyClass/MyClass";
 import SelectItem from "../pages/SelectItem/SelectItem";
 import UpdateMyClass from "../pages/UpdateMyClass/UpdateMyClass";
 import Payment from "../pages/Payment/Payment";
+import Enrolled from "../pages/Enrolled/Enrolled";
+import ErrorPage from "../pages/ErrorPages/ErrorPage";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path:"/",
@@ -45,7 +48,7 @@ import Payment from "../pages/Payment/Payment";
         {
           path: 'singleclass/:id',
           element: <SingleClass></SingleClass>,
-          loader: ({params})=>fetch(`http://localhost:5000/classes/${params.id}`)
+          loader: ({params})=>fetch(`https://summer-camp-server-flame-three.vercel.app/classes/${params.id}`)
         },
         
       ]
@@ -77,16 +80,20 @@ import Payment from "../pages/Payment/Payment";
         {
           path: "/dashboard/updateclass/:id",
           element: <UpdateMyClass></UpdateMyClass>,
-          //loader: ({params})=>fetch(`http://localhost:5000/singleclass/${params.id}`)
+          //loader: ({params})=>fetch(`https://summer-camp-server-flame-three.vercel.app/singleclass/${params.id}`)
         },
         {
           path: "/dashboard/selectitem",
           element: <SelectItem></SelectItem>
         },
         {
+          path: "/dashboard/enrolled",
+          element: <Enrolled></Enrolled>
+        },
+        {
           path: "/dashboard/payment/:id",
           element: <Payment></Payment>,
-          loader: ({params})=>fetch(`http://localhost:5000/addtoclass/${params.id}`)
+          loader: ({params})=>fetch(`https://summer-camp-server-flame-three.vercel.app/addtoclass/${params.id}`)
         }
 
       ]
