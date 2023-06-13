@@ -16,13 +16,16 @@ const DashBoard = () => {
                 <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                     {/* Sidebar content here */}
                     <li><AiFillHome className='bg-black-300'></AiFillHome> <Link to='/'>Users Home</Link></li>
-                    <li><a>Dashboard</a></li>
-                    <li><Link to="/dashboard/instructor">Add Instructor</Link></li>
+                   
+                    <li><Link to="/dashboard/selectitem">My Selected Classes</Link></li>
                     <li><Link to='/dashboard/class'>Add Class</Link></li>
+                    {/* <li><Link to="/dashboard/instructor">Add Instructor</Link></li> */}
+                    
                     <li><Link to="/dashboard/myclass">My Classes</Link></li>
-                    <li><Link to="/dashboard/action">Manage Users</Link></li>
                     <li><Link to="/dashboard/allclass">Manage Classes</Link></li>
-                    <li><Link to="/dashboard/selectitem">Select Item</Link></li>
+                    <li><Link to="/dashboard/action">Manage Users</Link></li>
+                    
+                    
                 </ul>
 
             </div>

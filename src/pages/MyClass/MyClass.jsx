@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MyClass = () => {
     const { user } = useContext(AuthContext)
+    console.log(user)
     const [classData, setClassData] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/classes/${user?.email}`)
@@ -13,7 +14,7 @@ const MyClass = () => {
                 console.log(data)
                 setClassData(data)
             })
-    }, [])
+    }, [user?.email])
     return (
         <div>
             
