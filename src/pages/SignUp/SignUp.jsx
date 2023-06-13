@@ -87,13 +87,13 @@ const SignUp = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
-                        <div className="form-control">
+                        {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
                             <input type="password" placeholder="Confirm Password" {...register("confirm", { required: true })} className="input input-bordered" />
                             
-                        </div>
+                        </div> */}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
