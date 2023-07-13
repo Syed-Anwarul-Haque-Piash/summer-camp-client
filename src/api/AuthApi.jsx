@@ -3,7 +3,7 @@ export const saveUser=(user)=>{
     const currentUser={
         email:user.email,
         name:user.displayName,
-        //img:user?.photoURL
+    //img:user?.photoURL
     }
     fetch(`https://summer-camp-server-flame-three.vercel.app/users/${user.email}`,{
         method:'PUT',
